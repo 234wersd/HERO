@@ -543,13 +543,11 @@ def compute_required_ensemble_votes(
     return min(int(num_quantiles), max(1, required_votes))
 
 
-def parse_args(argv=None, defaults=None):
+def parse_args(argv=None):
     parser = build_arg_parser()
     parser.add_argument("--save_umap_artifact", type=str, default=None)
     parser.add_argument("--overwrite_umap_artifact", action="store_true")
     parser.add_argument("--export_analysis_stats", action="store_true")
     parser.add_argument("--analysis_output_dir", type=str, default="results/hero_analysis")
     parser.add_argument("--analysis_plot_seed", type=int, default=0)
-    if defaults is not None:
-        parser.set_defaults(**defaults)
     return parser.parse_args(argv)
